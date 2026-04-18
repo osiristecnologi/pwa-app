@@ -2,34 +2,96 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-
   <title>FarmaFácil</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PWA básico -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#16a34a">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#d1fae5, #ecfdf5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .enviar {
+      background: #16a34a;
+      color: white;
+    }
+
+    .limpar {
+      background: #ef4444;
+      color: white;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; text-align: center; margin-top: 50px; background:#f0fdf4;">
+<body>
 
+<div class="container">
   <h1>💊 FarmaFácil</h1>
-  <p>Faça seu pedido rápido pelo WhatsApp</p>
+  <p class="info">Digite seu pedido abaixo:</p>
 
-  <button onclick="enviarWhats()" style="padding:15px 25px; font-size:16px; background:#16a34a; color:white; border:none; border-radius:10px;">
-    Enviar Pedido 📲
+  <textarea id="pedido" placeholder="Ex: Dipirona 2x, Paracetamol 1x"></textarea>
+
+  <button class="enviar" onclick="enviarPedido()">
+    Enviar pelo WhatsApp 📱
   </button>
 
-  <script>
-    function enviarWhats() {
-      const msg = "Olá, vim pelo app FarmaFácil e quero fazer um pedido!";
-      window.open("https://wa.me/?text=" + encodeURIComponent(msg));
-    }
+  <button class="limpar" onclick="limparPedido()">
+    Limpar Pedido 🗑️
+  </button>
+</div>
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-  </script>
+<script>
+  const numero = "5511999999999"; // 🔴 COLOCA SEU WHATSAPP AQUI
 
-</body>
-</html>
+  const campo = document.getElementById("pedido");
+
+  // Car
