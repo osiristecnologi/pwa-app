@@ -2,24 +2,27 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Meu App</title>
+
+  <title>FarmaFácil</title>
 
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#16a34a">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+<body style="font-family: Arial; text-align: center; margin-top: 50px; background:#f0fdf4;">
 
-  <h1>🚀 Meu App PWA</h1>
-  <p>Agora dá pra instalar no celular!</p>
+  <h1>💊 FarmaFácil</h1>
+  <p>Faça seu pedido rápido pelo WhatsApp</p>
 
-  <button onclick="enviarWhats()">Enviar WhatsApp</button>
+  <button onclick="enviarWhats()" style="padding:15px 25px; font-size:16px; background:#16a34a; color:white; border:none; border-radius:10px;">
+    Enviar Pedido 📲
+  </button>
 
   <script>
     function enviarWhats() {
-      const msg = "Olá, vim pelo app!";
+      const msg = "Olá, vim pelo app FarmaFácil e quero fazer um pedido!";
       window.open("https://wa.me/?text=" + encodeURIComponent(msg));
     }
 
