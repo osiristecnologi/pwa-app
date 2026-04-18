@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu App</title>
 
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+
+  <h1>🚀 Meu App PWA</h1>
+  <p>Agora dá pra instalar no celular!</p>
+
+  <button onclick="enviarWhats()">Enviar WhatsApp</button>
+
+  <script>
+    function enviarWhats() {
+      const msg = "Olá, vim pelo app!";
+      window.open("https://wa.me/?text=" + encodeURIComponent(msg));
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+
+</body>
+</html>
